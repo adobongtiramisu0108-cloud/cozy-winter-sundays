@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cozy Winter Sundays – A Joshua Birthday Event</title>
-<meta name="description" content="A fan-organized birthday cupsleeve event for Joshua Hong of SEVENTEEN. 27 December 2026 in Davao, General Santos, Bacolod and Bulacan.">
+<meta name="description" content="A fan-organized birthday cupsleeve event for Joshua Hong of SEVENTEEN. 20 December 2026 in Davao, General Santos, Bacolod and Bulacan.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -69,7 +69,7 @@ footer a{color:var(--vanilla)}
     <p class="mono" style="color:var(--cinna)">SHUJIC4RT presents</p>
     <h1>Cozy Winter <span>SUNDAYS</span></h1>
     <p class="sub">a Joshua Birthday Event</p>
-    <div class="date"><span class="mono" style="color:var(--twi)">Save the date</span><strong>Sunday, 27 December 2026</strong></div>
+    <div class="date"><span class="mono" style="color:var(--twi)">Save the date</span><strong>Sunday, 20 December 2026</strong></div>
     <p id="count" class="mono"></p>
     <a class="btn" href="#locations" data-home>Choose your city</a>
   </div>
@@ -83,7 +83,7 @@ footer a{color:var(--vanilla)}
   <h2>About the event</h2>
   <p class="lead">Cozy Winter Sundays is a fan-organized birthday cupsleeve event celebrating Joshua Hong of SEVENTEEN, inspired by the warmth of Sunday mornings and cozy winter days.</p>
   <div class="grid">
-    <div class="note"><span class="mono">When</span><h3>27 December 2026</h3><p>One Sunday, four cities, celebrated at the same time by fellow CARATs.</p></div>
+    <div class="note"><span class="mono">When</span><h3>20 December 2026</h3><p>One Sunday, four cities, celebrated at the same time by fellow CARATs.</p></div>
     <div class="note"><span class="mono">Format</span><h3>Come-and-go CSE</h3><p>Drop by your host café any time during event hours. Some cities may add games and fan activities.</p></div>
     <div class="note"><span class="mono">Event kit</span><h3>Claim yours</h3><p>Register, then order at least one drink from the host café to claim your event kit.</p></div>
     <div class="note"><span class="mono">Raffle</span><h3>Sponsored prizes</h3><p>Raffle prizes and merchandise are shared across all four locations, depending on sponsor availability.</p></div>
@@ -113,7 +113,7 @@ footer a{color:var(--vanilla)}
    - venue, time, organizer, note : leave "" to show "To be announced"
    - id must stay lowercase letters and dashes (it is used in the page link)
    ========================================================== */
-var EVENT_DATE = "2026-12-27T00:00:00+08:00";
+var EVENT_DATE = "2026-12-20T00:00:00+08:00";
 var CITIES = [
   { id:"davao",         name:"Davao",         venue:"", time:"", organizer:"", formUrl:"", note:"" },
   { id:"general-santos",name:"General Santos",venue:"", time:"", organizer:"", formUrl:"", note:"" },
@@ -128,7 +128,7 @@ function safeUrl(u){return /^https:\/\//i.test(u) ? u : ""}
 
 var cityBox = document.getElementById("cities");
 cityBox.innerHTML = CITIES.map(function(c){
-  return '<div class="note city"><div><span class="mono">27 Dec 2026</span><h3>'+esc(c.name)+'</h3>'+
+  return '<div class="note city"><div><span class="mono">20 Dec 2026</span><h3>'+esc(c.name)+'</h3>'+
     '<div class="meta">Venue: '+esc(c.venue||TBA)+'<br>Time: '+esc(c.time||TBA)+'</div></div>'+
     '<a class="btn" href="#'+c.id+'">View &amp; register</a></div>';
 }).join("");
@@ -141,7 +141,7 @@ function route(){
   panel.innerHTML =
     '<a class="back mono" href="#locations" data-home>&larr; All locations</a>'+
     '<p class="mono" style="color:var(--cinna)">Cozy Winter Sundays</p>'+
-    '<h2>'+esc(c.name)+'</h2><p class="mono" style="color:var(--twi)">Sunday, 27 December 2026</p>'+
+    '<h2>'+esc(c.name)+'</h2><p class="mono" style="color:var(--twi)">Sunday, 20 December 2026</p>'+
     '<dl><dt class="mono">Venue</dt><dd>'+esc(c.venue||TBA)+'</dd>'+
     '<dt class="mono">Time</dt><dd>'+esc(c.time||TBA)+'</dd>'+
     '<dt class="mono">Organized by</dt><dd>'+esc(c.organizer||TBA)+'</dd>'+
