@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cozy Winter Sundays – A Joshua Birthday Event</title>
-<meta name="description" content="A fan-organized birthday cupsleeve event for Joshua Hong of SEVENTEEN. 20 December 2026 in Davao, General Santos, Bacolod, Bulacan and Laguna.">
+<meta name="description" content="A fan-organized birthday cupsleeve event for Joshua Hong of SEVENTEEN. 20 December 2026 in Davao, General Santos, Bulacan and Laguna.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -83,16 +83,16 @@ footer a{color:var(--vanilla)}
   <h2>About the event</h2>
   <p class="lead">Cozy Winter Sundays is a fan-organized birthday cupsleeve event celebrating Joshua Hong of SEVENTEEN, inspired by the warmth of Sunday mornings and cozy winter days.</p>
   <div class="grid">
-    <div class="note"><span class="mono">When</span><h3 class="dlong"></h3><p>One Sunday, five cities, celebrated at the same time by fellow CARATs.</p></div>
+    <div class="note"><span class="mono">When</span><h3 class="dlong"></h3><p>One Sunday, four cities, celebrated at the same time by fellow CARATs.</p></div>
     <div class="note"><span class="mono">Format</span><h3>Come-and-go CSE</h3><p>Drop by your host café any time during event hours. Some cities may add games and fan activities.</p></div>
-    <div class="note"><span class="mono">Event kit</span><h3>Claim yours</h3><p>Register, then order at least one drink from the host café to claim your event kit.</p></div>
-    <div class="note"><span class="mono">Raffle</span><h3>Sponsored prizes</h3><p>Raffle prizes and merchandise are shared across all five locations, depending on sponsor availability.</p></div>
+    <div class="note"><span class="mono">Event kit</span><h3>Claim yours</h3><p>Register, then meet your city’s minimum order at the host café to claim your event kit.</p></div>
+    <div class="note"><span class="mono">Raffle</span><h3>Sponsored prizes</h3><p>Raffle prizes and merchandise are shared across all four locations, depending on sponsor availability.</p></div>
   </div>
 </div></section>
 
 <section id="locations"><div class="wrap">
   <h2>Pick your location</h2>
-  <p class="lead">The celebration happens in five cities at the same time. Choose the one you’ll attend and you’ll be taken to its registration.</p>
+  <p class="lead">The celebration happens in four cities at the same time. Choose the one you’ll attend and you’ll be taken to its registration.</p>
   <div class="grid" id="cities"></div>
 </div></section>
 </div>
@@ -111,19 +111,19 @@ footer a{color:var(--vanilla)}
    EDIT THIS PART ONLY.
    For each city, fill in the details when they are ready.
    - formUrl : paste that city's Google Form link (leave "" until ready)
-   - venue, time, organizer, note : leave "" to show "To be announced"
+   - venue, time, organizer, minOrder, note : leave "" to show "To be announced"
+   - minOrder : minimum order at the host café to claim the kit, e.g. "₱180"
    - id must stay lowercase letters and dashes (it is used in the page link)
    ========================================================== */
-var SITE_VERSION = "v3 - 2 Nov 2026";   /* change this every time you edit, to confirm your edit went live */
+var SITE_VERSION = "v6 - 3 Nov 2026";   /* change this every time you edit, to confirm your edit went live */
 var EVENT_DATE = "2026-12-20T00:00:00+08:00";
 var DATE_LONG  = "Sunday, 20 December 2026";
 var DATE_SHORT = "20 Dec 2026";
 var CITIES = [
-  { id:"davao",         name:"Davao",         venue:"", time:"", organizer:"", formUrl:"", note:"" },
-  { id:"general-santos",name:"General Santos",venue:"", time:"", organizer:"", formUrl:"", note:"" },
-  { id:"bacolod",       name:"Bacolod",       venue:"", time:"", organizer:"", formUrl:"", note:"" },
-  { id:"bulacan",       name:"Bulacan",       venue:"", time:"", organizer:"", formUrl:"", note:"" },
-  { id:"laguna",        name:"Laguna",        venue:"", time:"", organizer:"", formUrl:"", note:"" }
+  { id:"davao",         name:"Davao",         venue:"", time:"", organizer:"", formUrl:"", minOrder:"", note:"" },
+  { id:"general-santos",name:"General Santos",venue:"", time:"", organizer:"", formUrl:"", minOrder:"", note:"" },
+  { id:"bulacan",       name:"Bulacan",       venue:"", time:"", organizer:"", formUrl:"", minOrder:"₱180", note:"" },
+  { id:"laguna",        name:"Laguna",        venue:"", time:"", organizer:"", formUrl:"", minOrder:"", note:"" }
 ];
 /* ========================================================== */
 
@@ -153,7 +153,7 @@ function route(){
     '<dt class="mono">Time</dt><dd>'+esc(c.time||TBA)+'</dd>'+
     '<dt class="mono">Organized by</dt><dd>'+esc(c.organizer||TBA)+'</dd>'+
     (c.note?'<dt class="mono">Good to know</dt><dd>'+esc(c.note)+'</dd>':'')+
-    '<dt class="mono">Event kit</dt><dd>Order at least one drink from the host café to claim your kit.</dd></dl>'+
+    '<dt class="mono">Minimum order to claim your kit</dt><dd>'+(c.minOrder?esc(c.minOrder)+' at the host café':TBA)+'</dd></dl>'+
     (url?'<a class="btn" href="'+esc(url)+'" target="_blank" rel="noopener">Register for '+esc(c.name)+'</a>'
         :'<span class="btn off">Registration opens soon</span>');
   home.style.display="none"; detail.style.display="block"; window.scrollTo(0,0);
