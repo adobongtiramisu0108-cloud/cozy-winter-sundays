@@ -85,7 +85,7 @@ footer a{color:var(--vanilla)}
   <div class="grid">
     <div class="note"><span class="mono">When</span><h3 class="dlong"></h3><p>One Sunday, four cities, celebrated at the same time by fellow CARATs.</p></div>
     <div class="note"><span class="mono">Format</span><h3>Come-and-go CSE</h3><p>Drop by your host café any time during event hours. Some cities may add games and fan activities.</p></div>
-    <div class="note"><span class="mono">Event kit</span><h3>Claim yours</h3><p>Register, then meet your city’s minimum order at the host café to claim your event kit.</p></div>
+    <div class="note"><span class="mono">Event kit</span><h3>Claim yours</h3><p>Kit price and drink rules depend on your city’s host café. Pick your city to see the details.</p></div>
     <div class="note"><span class="mono">Raffle</span><h3>Sponsored prizes</h3><p>Raffle prizes and merchandise are shared across all four locations, depending on sponsor availability.</p></div>
   </div>
 </div></section>
@@ -120,10 +120,10 @@ var EVENT_DATE = "2026-12-20T00:00:00+08:00";
 var DATE_LONG  = "Sunday, 20 December 2026";
 var DATE_SHORT = "20 Dec 2026";
 var CITIES = [
-  { id:"davao",         name:"Davao",         venue:"HWYL Cafe, Juna Subdivision, 611 Kasoy, Talomo, Davao City", time:"2:00 - 5:00 PM", organizer:"", formUrl:"", minOrder:"Purchase any drink to avail the kit.", note:"" },
-  { id:"general-santos",name:"General Santos",venue:"", time:"", organizer:"", formUrl:"", minOrder:"", note:"" },
-  { id:"bulacan",       name:"Bulacan",       venue:"Coffee Buddy - Balagtas, One Bulacan Place, #8001 McArthur Highway, San Juan, Balagtas, Bulacan", time:"2:30 - 5:00 PM", organizer:"Seventeen Seasons Bulacan", formUrl:"", minOrder:"₱450", note:"" },
-  { id:"laguna",        name:"Laguna",        venue:"", time:"", organizer:"", formUrl:"", minOrder:"", note:"" }
+  { id:"davao",         name:"Davao",         venue:"HWYL Cafe, Juna Subdivision, 611 Kasoy, Talomo, Davao City", time:"2:00 - 5:00 PM", organizer:"", formUrl:"", kit:""₱250 (event kit only).", drinks:"Purchase atleast one drink at the host cafe", note:"Registration is open until November 21, 2026 or until supplies last." },
+  { id:"general-santos",name:"General Santos",venue:"", time:"", organizer:"", formUrl:"", kit:"", drinks:"", note:"" },
+  { id:"bulacan",       name:"Bulacan",       venue:"Coffee Buddy - Balagtas, One Bulacan Place, #8001 McArthur Highway, San Juan, Balagtas, Bulacan", time:"2:30 - 5:00 PM", organizer:"Seventeen Seasons Bulacan", formUrl:"", kit:"₱450 (event kit + 1 drink, PAYO)", drinks:"One drink is included. You may order more drinks and food if you like.", note:"Registration is open until November 21, 2026 or until supplies last." },
+  { id:"laguna",        name:"Laguna",        venue:"", time:"", organizer:"", formUrl:"", kit:"", drinks:"", note:"" }
 ];
 /* ========================================================== */
 
@@ -136,7 +136,7 @@ function safeUrl(u){return /^https:\/\//i.test(u) ? u : ""}
 var cityBox = document.getElementById("cities");
 cityBox.innerHTML = CITIES.map(function(c){
   return '<div class="note city"><div><span class="mono">'+DATE_SHORT+'</span><h3>'+esc(c.name)+'</h3>'+
-    '<div class="meta">Venue: '+esc(c.venue||TBA)+'<br>Time: '+esc(c.time||TBA)+'</div></div>'+
+        '<div class="meta">Venue: '+esc(c.venue||TBA)+'<br>Time: '+esc(c.time||TBA)+'<br>Kit: '+esc(c.kit||TBA)+'</div></div>'+
     '<a class="btn" href="#'+c.id+'">View &amp; register</a></div>';
 }).join("");
 
@@ -153,7 +153,8 @@ function route(){
     '<dt class="mono">Time</dt><dd>'+esc(c.time||TBA)+'</dd>'+
     '<dt class="mono">Organized by</dt><dd>'+esc(c.organizer||TBA)+'</dd>'+
     (c.note?'<dt class="mono">Good to know</dt><dd>'+esc(c.note)+'</dd>':'')+
-    '<dt class="mono">Minimum order to claim your kit</dt><dd>'+(c.minOrder?esc(c.minOrder)+' at the host café':TBA)+'</dd></dl>'+
+        '<dt class="mono">Kit price</dt><dd>'+esc(c.kit||TBA)+'</dd>'+
+    '<dt class="mono">Drink rule</dt><dd>'+esc(c.drinks||TBA)+'</dd></dl>'+
     (url?'<a class="btn" href="'+esc(url)+'" target="_blank" rel="noopener">Register for '+esc(c.name)+'</a>'
         :'<span class="btn off">Registration opens soon</span>');
   home.style.display="none"; detail.style.display="block"; window.scrollTo(0,0);
