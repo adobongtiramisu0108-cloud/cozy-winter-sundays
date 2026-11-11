@@ -56,6 +56,21 @@ section h2{font-size:2.3rem;text-align:center;margin-bottom:8px}
 footer{background:var(--mid);color:var(--sky);text-align:center;padding:34px 20px}
 footer b{font:italic 1.3rem "Playfair Display",serif;color:var(--vanilla);display:block;margin-bottom:6px}
 footer a{color:var(--vanilla)}
+
+.commute{max-width:960px;margin:46px auto 0}
+.commute h2{font-size:2rem;text-align:center;margin-bottom:6px}
+.land{background:#fffdf9;border:1px dashed var(--latte);box-shadow:5px 6px 0 var(--oat);padding:18px;margin:18px auto 26px;max-width:620px;text-align:center}
+.land svg{width:100%;max-width:520px;height:auto}
+.say{margin-top:6px}
+.routes{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+.route{background:#fffdf9;border:1px dashed var(--latte);box-shadow:3px 4px 0 var(--oat);padding:18px 18px 6px}
+.route svg{width:100%;height:auto;display:block;margin-bottom:8px}
+.route h3{font-size:1.15rem}
+.route h4{font:500 .72rem "Roboto Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--twi);margin:12px 0 4px}
+.route ol{padding-left:22px;margin-bottom:12px;font-size:.95rem}
+.warn{display:flex;align-items:center;gap:14px;justify-content:center;background:#fdecea;border:1px dashed #c0392b;padding:12px 16px;margin:26px auto 0;max-width:620px;font-weight:bold;color:#8a2a1f}
+.warn svg{width:64px;flex:none}
+.tips{max-width:620px;margin:22px auto 0;padding-left:22px;font-size:.95rem}
 </style>
 </head>
 <body>
@@ -97,7 +112,70 @@ footer a{color:var(--vanilla)}
 </div></section>
 </div>
 
-<div id="detail"><div class="wrap"><div class="panel" id="panel"></div></div></div>
+<div id="detail"><div class="wrap"><div class="panel" id="panel"></div><div class="commute" id="commute"></div></div></div>
+
+
+<template id="tpl-bulacan">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="bus" viewBox="0 0 120 70"><rect x="4" y="8" width="112" height="46" rx="10" fill="currentColor" stroke="#2e425f" stroke-width="2.5"/><rect x="12" y="16" width="20" height="16" rx="3" fill="#d6dee6" stroke="#2e425f" stroke-width="1.5"/><rect x="38" y="16" width="20" height="16" rx="3" fill="#d6dee6" stroke="#2e425f" stroke-width="1.5"/><rect x="64" y="16" width="20" height="16" rx="3" fill="#d6dee6" stroke="#2e425f" stroke-width="1.5"/><rect x="90" y="16" width="20" height="16" rx="3" fill="#d6dee6" stroke="#2e425f" stroke-width="1.5"/><rect x="5" y="38" width="110" height="5" fill="#fffdf9" opacity=".75"/><circle cx="30" cy="55" r="9" fill="#4a392e"/><circle cx="30" cy="55" r="3.5" fill="#d9c6b2"/><circle cx="90" cy="55" r="9" fill="#4a392e"/><circle cx="90" cy="55" r="3.5" fill="#d9c6b2"/><rect x="108" y="44" width="7" height="5" rx="2" fill="#f6efe6"/></symbol>
+<symbol id="jeep" viewBox="0 0 130 70"><rect x="30" y="8" width="72" height="16" rx="5" fill="#fffdf9" stroke="#2e425f" stroke-width="2.5"/><rect x="6" y="20" width="116" height="32" rx="8" fill="currentColor" stroke="#2e425f" stroke-width="2.5"/><rect x="14" y="26" width="16" height="12" rx="3" fill="#d6dee6" stroke="#2e425f" stroke-width="1.5"/><rect x="36" y="26" width="16" height="12" rx="3" fill="#d6dee6" stroke="#2e425f" stroke-width="1.5"/><rect x="58" y="26" width="16" height="12" rx="3" fill="#d6dee6" stroke="#2e425f" stroke-width="1.5"/><rect x="82" y="26" width="30" height="12" rx="3" fill="#d6dee6" stroke="#2e425f" stroke-width="1.5"/><path d="M8 44h112" stroke="#fffdf9" stroke-width="3" stroke-dasharray="6 4"/><circle cx="32" cy="54" r="9" fill="#4a392e"/><circle cx="32" cy="54" r="3.5" fill="#d9c6b2"/><circle cx="98" cy="54" r="9" fill="#4a392e"/><circle cx="98" cy="54" r="3.5" fill="#d9c6b2"/><rect x="116" y="40" width="8" height="6" rx="2" fill="#f6efe6"/></symbol>
+<symbol id="pin" viewBox="0 0 40 52"><path d="M20 50C8 34 4 28 4 19a16 16 0 0 1 32 0c0 9-4 15-16 31z" fill="#d9798b" stroke="#2e425f" stroke-width="2.2"/><circle cx="20" cy="19" r="6.5" fill="#fffdf9"/></symbol>
+</defs></svg>
+
+<h2>How to get there</h2>
+<p class="lead">Coffee Buddy is right beside <b>BDO San Juan, Balagtas</b>. Not all drivers know Coffee Buddy, so ask to be dropped at BDO instead!</p>
+
+<div class="land">
+<svg viewBox="0 0 360 170" role="img" aria-label="Drawing of BDO San Juan with Coffee Buddy right beside it">
+<use href="#pin" x="76" y="2" width="38" height="50"/><text x="122" y="24" font-size="11" fill="#8a3b4c" font-family="Georgia,serif" font-style="italic">drop me here!</text>
+<rect x="18" y="58" width="152" height="74" fill="#e6ecf3" stroke="#2e425f" stroke-width="2.5"/><rect x="14" y="52" width="160" height="10" fill="#2a5ca8" stroke="#2e425f" stroke-width="2"/>
+<rect x="36" y="68" width="116" height="30" rx="4" fill="#2a5ca8"/><text x="94" y="91" text-anchor="middle" font-size="22" font-weight="bold" fill="#fff" font-family="Arial,sans-serif">BDO</text>
+<rect x="78" y="104" width="32" height="28" fill="#afc2d4" stroke="#2e425f" stroke-width="2"/><rect x="26" y="106" width="34" height="18" fill="#d6dee6" stroke="#2e425f" stroke-width="1.5"/><rect x="128" y="106" width="34" height="18" fill="#d6dee6" stroke="#2e425f" stroke-width="1.5"/>
+<path d="M181 88c-8-8-14-12-8-18 4-4 8-1 8 2 0-3 4-6 8-2 6 6 0 10-8 18z" fill="#d9798b"/>
+<rect x="192" y="68" width="152" height="64" fill="#fffdf9" stroke="#4a392e" stroke-width="2.5"/>
+<g stroke="#4a392e" stroke-width="1.5"><rect x="190" y="56" width="26" height="16" fill="#8c6b4f"/><rect x="216" y="56" width="26" height="16" fill="#f6efe6"/><rect x="242" y="56" width="26" height="16" fill="#8c6b4f"/><rect x="268" y="56" width="26" height="16" fill="#f6efe6"/><rect x="294" y="56" width="26" height="16" fill="#8c6b4f"/><rect x="320" y="56" width="26" height="16" fill="#f6efe6"/></g>
+<rect x="212" y="80" width="112" height="22" rx="4" fill="#8c6b4f"/><text x="268" y="96" text-anchor="middle" font-size="13" font-style="italic" font-weight="bold" fill="#f6efe6" font-family="Georgia,serif">Coffee Buddy</text>
+<rect x="254" y="106" width="28" height="26" fill="#d9c6b2" stroke="#4a392e" stroke-width="2"/><rect x="200" y="108" width="40" height="16" fill="#d6dee6" stroke="#4a392e" stroke-width="1.5"/><rect x="296" y="108" width="40" height="16" fill="#d6dee6" stroke="#4a392e" stroke-width="1.5"/>
+<path d="M250 36h26l-3 16h-20z" fill="#fffdf9" stroke="#4a392e" stroke-width="2"/><rect x="250" y="42" width="26" height="6" fill="#afc2d4"/><path d="M258 30c-4-4 4-6 0-10M268 30c-4-4 4-6 0-10" stroke="#afc2d4" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+<rect x="0" y="132" width="360" height="10" fill="#d9c6b2"/><rect x="0" y="142" width="360" height="26" fill="#b9b2a8"/><path d="M0 156h360" stroke="#fffdf9" stroke-width="3" stroke-dasharray="14 10"/>
+<path d="M330 20l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#afc2d4"/><path d="M30 24l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#d9c6b2"/>
+</svg>
+<p class="say">Tell the driver or conductor:<br><b>“Bababa po sa BDO San Juan, Balagtas.”</b></p>
+</div>
+
+<div class="routes">
+<div class="route">
+<svg viewBox="0 0 300 76" role="img" aria-label="P2P bus to Bulacan"><use href="#bus" style="color:#7e9ab7" x="6" y="4" width="120" height="70"/><path d="M140 40h96" stroke="#8c6b4f" stroke-width="3" stroke-dasharray="7 6" stroke-linecap="round"/><path d="M228 32l12 8-12 8" fill="none" stroke="#8c6b4f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><use href="#pin" x="252" y="12" width="36" height="48"/><text x="66" y="48" text-anchor="middle" font-size="11" fill="#2e425f" font-family="Arial,sans-serif" font-weight="bold">P2P</text></svg>
+<h3>From Trinoma</h3>
+<ol><li>Ride a <b>P2P bus</b> bound for Bulacan.</li><li>Once you’re in Bulacan, ask the conductor or driver to drop you at <b>BDO San Juan, Balagtas</b>.</li></ol>
+</div>
+
+<div class="route">
+<svg viewBox="0 0 300 76" role="img" aria-label="Metrolink yellow bus or jeepney to Balagtas"><use href="#bus" style="color:#f2c94c" x="2" y="4" width="104" height="60"/><text x="124" y="40" font-size="12" fill="#8c6b4f" font-family="Georgia,serif" font-style="italic">or</text><use href="#jeep" style="color:#d9798b" x="146" y="8" width="96" height="52"/><use href="#pin" x="258" y="12" width="32" height="44"/></svg>
+<h3>From Marilao, Meycauayan, Valenzuela &amp; Caloocan</h3>
+<h4>By bus</h4>
+<ol><li>Ride the <b>Metrolink bus</b> (Yellow route, bound for Balagtas).</li><li>Ask to be dropped at <b>BDO San Juan, Balagtas</b>.</li></ol>
+<h4>By jeepney (Marilao, Meycauayan, Valenzuela)</h4>
+<ol><li>Ride a jeepney with the route <b>Balagtas</b> or <b>Malolos</b>.</li><li>Ask to be dropped at <b>BDO San Juan, Balagtas</b>.</li></ol>
+</div>
+
+<div class="route">
+<svg viewBox="0 0 300 76" role="img" aria-label="Jeepney, transfer, another jeepney to Balagtas"><use href="#jeep" style="color:#afc2d4" x="0" y="8" width="84" height="46"/><path d="M92 30c10-14 24-14 34 0" fill="none" stroke="#8c6b4f" stroke-width="2.5" stroke-linecap="round"/><path d="M121 22l6 9-10 1" fill="none" stroke="#8c6b4f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><text x="109" y="58" text-anchor="middle" font-size="9" fill="#8c6b4f" font-family="Georgia,serif" font-style="italic">transfer</text><use href="#jeep" style="color:#d9798b" x="134" y="8" width="84" height="46"/><use href="#pin" x="246" y="12" width="32" height="44"/></svg>
+<h3>From Valenzuela &amp; Caloocan <small style="font-weight:normal">(no bus available)</small></h3>
+<ol><li>Ride a jeepney. Some are bound for <b>Balagtas</b> or <b>Malolos</b>, so you can take those directly.</li><li>Some only go as far as <b>Bocaue, Malinta or Malanday</b>. Get off there and ride another jeepney bound for Malolos or Balagtas.</li><li>Ask to be dropped at <b>BDO San Juan, Balagtas</b>.</li></ol>
+</div>
+</div>
+
+<p class="warn"><svg viewBox="0 0 70 50" aria-hidden="true"><use href="#jeep" style="color:#d9798b" x="8" y="6" width="54" height="30"/><circle cx="35" cy="25" r="22" fill="none" stroke="#c0392b" stroke-width="4"/><path d="M19 41L51 9" stroke="#c0392b" stroke-width="4"/></svg><span>Do NOT ride Sta. Maria jeepneys!</span></p>
+
+<ul class="tips">
+<li>Tell the driver or conductor your drop-off as soon as you board.</li>
+<li>Once you get off at BDO, Coffee Buddy is right beside it!</li>
+<li>Leave early! The event runs 2:30 – 5:00 PM, and weekend traffic along McArthur Highway can be slow.</li>
+<li>Fares and travel times vary, so ask the conductor or driver.</li>
+<li>Not sure where you are? Search “BDO San Juan Balagtas” on Google Maps.</li>
+</ul>
+</template>
 
 <footer>
   <b>cozy winter sundays</b>
@@ -117,14 +195,14 @@ footer a{color:var(--vanilla)}
    - walkIn:true : no registration form for that city (shows "walk-ins only" instead of a button)
    - id must stay lowercase letters and dashes (it is used in the page link)
    ========================================================== */
-var SITE_VERSION = "v17 - 10 Nov 2026";   /* change this every time you edit, to confirm your edit went live */
+var SITE_VERSION = "v18 - 10 Nov 2026";   /* change this every time you edit, to confirm your edit went live */
 var EVENT_DATE = "2026-12-20T00:00:00+08:00";
 var DATE_LONG  = "Sunday, 20 December 2026";
 var DATE_SHORT = "20 Dec 2026";
 var CITIES = [
   { id:"davao",         name:"Davao",         venue:"HWYL Cafe, Juna Subdivision, 611 Kasoy, Talomo, Davao City", time:"2:00 - 5:00 PM", organizer:"", formUrl:"", kit:"₱200 (event kit only)", drinks:"Purchase at least one drink at the host café.", note:"Registration is open until November 21, 2026 or until supplies last." },
   { id:"general-santos",name:"General Santos",venue:"", time:"", organizer:"", formUrl:"", kit:"", drinks:"", note:"" },
-  { id:"bulacan",       name:"Bulacan",       venue:"Coffee Buddy - Balagtas, One Bulacan Place, #8001 McArthur Highway, San Juan, Balagtas, Bulacan", time:"2:30 - 5:00 PM", organizer:"Seventeen Seasons Bulacan", formUrl:"https://forms.gle/eJoiSijUzv8DX9dR7", kit:"₱450 (event kit + 1 drink, PAYO)", drinks:"One drink is included. You may order more drinks and food if you like.", note:"First 10 registrants with verified payment get a FREE bias kit (fanmade Caratland passport, memo pad, polaroid minis, photostrip, NRPC, boarding pass and visa)! Registration is open until November 21, 2026 or until supplies last." },
+  { id:"bulacan",       name:"Bulacan",       venue:"Coffee Buddy - Balagtas, One Bulacan Place, #8001 McArthur Highway, San Juan, Balagtas, Bulacan", time:"2:30 - 5:00 PM", organizer:"Seventeen Seasons Bulacan", commute:true, formUrl:"https://forms.gle/eJoiSijUzv8DX9dR7", kit:"₱450 (event kit + 1 drink, PAYO)", drinks:"One drink is included. You may order more drinks and food if you like.", note:"First 10 registrants with verified payment get a FREE bias kit (fanmade Caratland passport, memo pad, polaroid minis, photostrip, NRPC, boarding pass and visa)! Registration is open until November 21, 2026 or until supplies last." },
   { id:"laguna",        name:"Laguna",        venue:"Baked N' Brew, P. Cabrera St. corner Balagtas Blvd, San Pablo City, Laguna", time:"", organizer:"", formUrl:"", kit:"", drinks:"", note:"" },
   { id:"zamboanga",     name:"Zamboanga",     venue:"", time:"", organizer:"", formUrl:"", kit:"", drinks:"", note:"" },
   { id:"osaka",         name:"Osaka, Japan",  venue:"7-2 Shinjonishi, Higashiosaka, Osaka 578-0964, Japan", time:"12:00 PM - 6:00 PM (Japan time), until supplies last", organizer:"Hosted by @titi___cafe", walkIn:true, formUrl:"", kit:"Included with the drink you buy", drinks:"The kit comes with your drink purchase.", note:"No registration needed. Walk-ins only, first come, first served." }
@@ -162,6 +240,8 @@ function route(){
     (c.walkIn?'<p class="mono" style="color:var(--twi);margin-top:26px">No registration needed. Walk-ins only, first come, first served!</p>'
       :url?'<a class="btn" href="'+esc(url)+'" target="_blank" rel="noopener">Register for '+esc(c.name)+'</a>'
       :'<span class="btn off">Registration opens soon</span>');
+  var tpl = document.getElementById("tpl-"+c.id);
+  document.getElementById("commute").innerHTML = (c.commute && tpl) ? tpl.innerHTML : "";
   home.style.display="none"; detail.style.display="block"; window.scrollTo(0,0);
 }
 window.addEventListener("hashchange", route); route();
